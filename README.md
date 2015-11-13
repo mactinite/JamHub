@@ -1,13 +1,13 @@
-##JamHub
+#JamHub
 A place to share and team up for game jams and competitons.
 
-#Currently Implemented
+##Currently Implemented
 -----------------------
   -user registration
   -user login
   -secure password storage
   
-#TODO
+##TODO
 -----------------------
   -Account editing (email, display name, etc)
   -Profile Editing (social media, adding games)
