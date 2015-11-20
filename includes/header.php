@@ -56,8 +56,10 @@ if (login_check($mysqli) == true) {
             <div id="navbar" class="collapse navbar-collapse">
               <ul class="nav navbar-nav navbar-left">
                 <li><a href="index.php">Home</a></li>
+                <?php if (login_check($mysqli) == true) : ?>
                 <li><a href="account.php">Account</a></li>
                 <li><a href="#Browse">Browse</a></li>
+              <?php endif ?>
               </ul>
               <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">

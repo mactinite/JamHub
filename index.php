@@ -10,8 +10,13 @@
         <hr/>
       </div>
       <div class="row">
+        <?php if (login_check($mysqli) == true) : ?>
+            <h2 class="text-center">Hello,<?php echo htmlentities($_SESSION['username']); ?>, How are you?</h2>
+            <h3 class="text-center">Looking for <a href="account.php">this?</a></h3>
+            <h4 class="text-center">...or maybe you want to <a href="includes/logout.php">logout?</a> </a></h4>
+        <?php else : ?>
       <form class="form-signin" action="includes/process_login.php" method="post" name="login_form">
-        <h2 class="form-signin-heading">Please sign in</h2>
+        <h2 class="form-signin-heading text-center">Please sign in</h2>
         <label for="inputEmail" class="sr-only">Email address</label>
         <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
@@ -32,7 +37,7 @@
         }
         ?>
       </form>
-
+      <?php endif; ?>
     </div>
 
     </div> <!-- /container -->
