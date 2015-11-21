@@ -1,11 +1,13 @@
     <?php
-    include_once "includes/header.php";
+    include_once 'includes/db_connect.php';
     $profile_id = $_GET["userprofile"];
-    $title = "User Profile";
     $query = "SELECT members.username FROM members WHERE id = $profile_id";
     $stmt = $mysqli->query($query);
     $row = $stmt->fetch_assoc();
-    $profile_user = $row['username']
+    $profile_user = $row['username'];
+    $title = "$profile_user";
+    include_once "includes/header.php";
+
      ?>
 
 
@@ -14,10 +16,9 @@
         <?php if (login_check($mysqli) == false) { ?>
           <p>Pssst! I register an account <a href="register.php">here</a></p>
         <?php }
-        if($mysqli->query($query) === false){
+        if($stmt->num_rows == 0){
           echo "<h1 class='text-center'>We couldn't find that user :(</h1>";
-        }
-        else{?>
+        }else{?>
           <h1 class="text-center"><strong><?php echo $profile_user ?></strong></h1>
           <div class="col-md-6" >
           <div class="panel panel-default">
@@ -58,8 +59,7 @@
             </div>
           </div>
           </div>
-        <?php }?>
-
+<?php }?>
 
     </div>
 

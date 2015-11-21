@@ -56,10 +56,9 @@ if (login_check($mysqli) == true) {
             <div id="navbar" class="collapse navbar-collapse">
               <ul class="nav navbar-nav navbar-left">
                 <li><a href="index.php">Home</a></li>
-                <?php if (login_check($mysqli) == true) : ?>
-                <li><a href="account.php">Account</a></li>
+                <?php if (login_check($mysqli) == true) { ?>
                 <li><a href="browse.php">Browse</a></li>
-              <?php endif ?>
+              <?php } ?>
               </ul>
               <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
@@ -67,7 +66,8 @@ if (login_check($mysqli) == true) {
               if (login_check($mysqli) == true) {
                 echo '<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Hello, '. htmlentities($_SESSION['username']) .'<span class="caret"></span></a>';
                 echo '<ul class="dropdown-menu">';
-                echo  '<li><a href="includes/logout.php">Logout</a></li></ul>';
+                echo '<li><a href="includes/logout.php">Logout</a></li>';
+                echo '<li><a href="account.php">Account</a></li></ul>';
 
                 } else {
                   echo '<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Currently logged '.$logged.'<span class="caret"></span></a>';
