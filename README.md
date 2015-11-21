@@ -9,13 +9,13 @@ A place to share and team up for game jams and competitons.
 
   -secure password storage
 
-  new! -Profile Editing (social media, adding games)
+  -Profile Editing (social media, adding games)
+  
+new! -User browsing
 
 
 ###TODO
 -----------------------
   -Account editing (email, etc)
-
-  -User browsing
 
   -Game EXP
