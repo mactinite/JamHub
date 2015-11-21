@@ -58,7 +58,7 @@ if (login_check($mysqli) == true) {
                 <li><a href="index.php">Home</a></li>
                 <?php if (login_check($mysqli) == true) : ?>
                 <li><a href="account.php">Account</a></li>
-                <li><a href="#Browse">Browse</a></li>
+                <li><a href="browse.php">Browse</a></li>
               <?php endif ?>
               </ul>
               <ul class="nav navbar-nav navbar-right">

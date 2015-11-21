@@ -6,7 +6,8 @@ include_once "includes/functions.php";
 <div class="container">
   <div class="row">
     <?php if (login_check($mysqli) == true) : ?>
-      <h1>Success! <a href="edit_sm.php">Add More</a></h1>
+      <h1>Success!</h1>
+      <h3><a href="add_game.php">Add More</a></h3>
     <?php endif; ?>
 
     </div>

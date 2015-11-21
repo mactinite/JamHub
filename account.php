@@ -31,7 +31,7 @@ include_once "includes/header.php";
     </div>
     <div class="col-md-8">
       <?php if (login_check($mysqli) == true) : ?>
-      <form action="" method="post">
+      <form action="includes/data_delete.php" method="POST">
       <ul class="list-group">
           <li class="list-group-item">Account information for <strong><?php echo htmlentities($_SESSION['username']); ?></strong></li>
           <li class="list-group-item"><strong>Social Media Contact Methods</strong> <a class="btn btn-primary btn-xs pull-right" href="edit_sm.php">Add</a> </li>
@@ -43,7 +43,7 @@ include_once "includes/header.php";
           $stmt = $mysqli->query($query);
           while($row = $stmt->fetch_assoc()) {
             echo "<li class='list-group-item'><a href='".$row['sm_url']."'>".$row['sm_name']."</a></a>
-            <button type='submit' name='delete_sm' value=".$row['idx']." class='btn btn-danger btn-xs pull-right' href='#delete'>Delete</button> </li>";
+            <button type='submit' name='delete_sm' value=".$row['idx']." class='btn btn-danger btn-xs pull-right'>Delete</button> </li>";
           }
           ?>
           <li class="list-group-item"><strong>Linked Games</strong><a class="btn btn-primary btn-xs pull-right" href="add_game.php">Add</a></li>
@@ -53,7 +53,7 @@ include_once "includes/header.php";
           $stmt = $mysqli->query($query);
           while($row = $stmt->fetch_assoc()) {
             echo "<li class='list-group-item'><a href='".$row['game_url']."'>".$row['game_name']."</a>
-            <button type='submit' name='delete_game' value=".$row['idx']." class='btn btn-danger btn-xs pull-right' href='#delete'>Delete</button> </li>";
+            <button type='submit' name='delete_game' value=".$row['idx']." class='btn btn-danger btn-xs pull-right'>Delete</button> </li>";
           }
           ?>
           <li class="list-group-item">Current XP</li>
@@ -72,16 +72,4 @@ include_once "includes/header.php";
   </div>
 </div>
 
-<?php
-if(isset($_POST['delete_sm']) and is_numeric($_POST['delete_sm']))
-{
-    $query = "DELETE FROM `account_sm` WHERE `idx` =".$_POST['delete_sm'].";";
-    $stmt = $mysqli->query($query);
-}
-if(isset($_POST['delete_game']) and is_numeric($_POST['delete_game']))
-{
-    $query = "DELETE FROM `account_games` WHERE `idx` =".$_POST['delete_game'].";";
-    $stmt = $mysqli->query($query);
-}
-
-include_once "includes/footer.php" ?>
+<?php include_once "includes/footer.php" ?>
